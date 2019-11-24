@@ -15,8 +15,7 @@ class ListOfFiles(object):
     def prep(self):
         if not int(time.time()) % 2 == 0:
             print("time since the beginning of the Unix epoch not a multiple of two")
-            print("Test {} BLOCKED".format(self.name))
-            sys.exit(1)
+            raise Exception("Test {} BLOCKED".format(self.name))
 
     @staticmethod
     def run():
@@ -35,6 +34,8 @@ class ListOfFiles(object):
             print("Cleaning UP test {}".format(self.name))
             self.clean_up()
             print("Test {} PASSED".format(self.name))
+        except Exception as exc:
+            print(exc)
         except OSError as error:
             print(error)
             print('Test {} FAILED'.format(self.name))
@@ -54,8 +55,7 @@ class RandomFile(object):
         ram = ram * 10 ** -9
         if ram < 1:
             print("Current RAM is lower that 1GB")
-            print("{} step prep - BLOCKED".format(self.name))
-            sys.exit(1)
+            raise Exception("{} step prep - BLOCKED".format(self.name))
         else:
             pass
 
@@ -76,6 +76,8 @@ class RandomFile(object):
             print("Cleaning UP test {}".format(self.name))
             self.clean_up()
             print("Test {} PASSED".format(self.name))
+        except Exception as exc:
+            print(exc)
         except OSError as error:
             print(error)
             print('Test {} FAILED'.format(self.name))
@@ -86,4 +88,3 @@ if __name__ == "__main__":
     random_file = RandomFile()
     random_file.execute()
     list_of_files.execute()
-    
