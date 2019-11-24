@@ -81,6 +81,8 @@ class RandomFile(object):
             print('Test {} FAILED'.format(self.name))
 
 
-if __name__ == "__main":
+if __name__ == "__main__":
+    list_of_files = ListOfFiles()
+    random_file = RandomFile()
     ListOfFiles.execute()
-    RandomFile.execute()
+    random_file.execute()
