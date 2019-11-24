@@ -50,7 +50,6 @@ class RandomFile(object):
         self.name = "Cлучайный Файл"
 
     def prep(self):
-        print('Preparing for a test')
         ram = psutil.virtual_memory().total
         ram = ram * 10 ** -9
         if ram < 1:
