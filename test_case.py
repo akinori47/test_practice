@@ -84,5 +84,5 @@ class RandomFile(object):
 if __name__ == "__main__":
     list_of_files = ListOfFiles()
     random_file = RandomFile()
-    ListOfFiles.execute()
+    list_of_files.execute()
     random_file.execute()
