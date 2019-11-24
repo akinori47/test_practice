@@ -16,7 +16,7 @@ class ListOfFiles(object):
         if not int(time.time()) % 2 == 0:
             print("time since the beginning of the Unix epoch not a multiple of two")
             print("Test {} BLOCKED".format(self.name))
-            sys.exit()
+            sys.exit(1)
 
     @staticmethod
     def run():
@@ -55,7 +55,7 @@ class RandomFile(object):
         if ram < 1:
             print("Current RAM is lower that 1GB")
             print("{} step prep - BLOCKED".format(self.name))
-            exit()
+            sys.exit(1)
         else:
             pass
 
@@ -84,5 +84,6 @@ class RandomFile(object):
 if __name__ == "__main__":
     list_of_files = ListOfFiles()
     random_file = RandomFile()
-    list_of_files.execute()
     random_file.execute()
+    list_of_files.execute()
+    
